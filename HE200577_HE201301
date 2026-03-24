@@ -1,0 +1,53 @@
+def string(s):
+    s = list(s)
+    i = len(s) - 1
+    if all(ch == 'd' for ch in s):
+        return 'a' * (len(s) + 1)     
+    while i >= 0:
+        if s[i] == 'a':
+            s[i] = 'b'
+            break
+        elif s[i] == 'b':
+            s[i] = 'c'
+            break
+        elif s[i] == 'c':
+            s[i] = 'd'
+            break
+        else:  
+            s[i] = 'a'
+            i -= 1
+         
+    return ''.join(s)
+
+def wavy(s):
+    for i in range(len(s) - 1):
+        if i % 2 == 0:
+            if not (s[i] < s[i+1]):
+                return False
+        else:
+            if not (s[i] > s[i+1]):
+                return False
+    return True
+    
+def next_wavy(s):
+    while True:
+        s = string(s)
+        if wavy(s):
+            return s
+            
+def count_wavy(s):
+    count = 0
+    cur = 'a' * len(s)
+
+    while cur is not None and cur < s:
+        if wavy(cur):
+            count += 1
+        cur = string(cur)
+
+    return count  
+    
+s = input("nhap chuoi ")    
+print("chuoi ke tiep la ", string(s))
+print("chuoi wavy dang sau la ", next_wavy(s))
+print("so chuoi wavy dung truoc la ", count_wavy(s))    
+
