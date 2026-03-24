@@ -1,0 +1,24 @@
+def knight_moves(m, n, i, j):
+    moves = [
+        (2, 1), (2, -1), (-2, 1), (-2, -1),
+        (1, 2), (1, -2), (-1, 2), (-1, -2)
+    ]
+
+    result = []
+    for dx, dy in moves:
+        x = i + dx
+        y = j + dy
+        if 1 <= x <= m and 1 <= y <= n:
+            result.append((x, y))
+    return result
+
+m = int(input("Nhap so hang m: "))
+n = int(input("Nhap so cot n: "))
+i = int(input("Nhap i: "))
+j = int(input("Nhap j: "))
+
+res = knight_moves(m, n, i, j)
+
+print("Cac vi tri co the di toi:")
+for pos in res:
+    print(pos)

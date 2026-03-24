@@ -1,0 +1,20 @@
+def product(M, N):
+    R = [[0, 0], [0, 0]]
+    for i in range(2):      
+        for j in range(2):  
+            for k in range(2):  
+                R[i][j] += M[i][k] * N[k][j]       
+    return R
+def nhap_ma_tran(ten):
+    print(f"\nNhập ma trận {ten}:")
+    a = int(input("Phan tu [1][1]: "))
+    b = int(input("Phan tu [1][2]: "))
+    c = int(input("Phan tu [2][1]: "))
+    d = int(input("Phan tu [2][2]: "))
+    return [[a, b], [c, d]]
+M = nhap_ma_tran("M")
+N = nhap_ma_tran("N")
+R = product(M, N)
+print("\nTich 2 ma tran la:")
+for row in R:
+    print(row)
